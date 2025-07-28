@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ người dùng</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-optimization.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="main-body">
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-section">
+                <a href="index.html" class="logo-link">
+                    <i class="fas fa-book-open logo-icon"></i>
+                    <h1 class="logo-title">RW_BOOK</h1>
+                </a>
+            </div>
+            <nav class="nav-desktop">
+                <a href="index.html">Trang chủ</a>
+                <a href="new-books.html">Sách mới</a>
+                <a href="top-books.html">Top sách</a>
+                <a href="about.html" class="nav-link active">Về chúng tôi</a>
+            </nav>
+            <div class="user-section">
+                <div id="userMenu" class="user-menu">
+                    <a href="user-profile.html" class="user-avatar-link">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="user-avatar">
+                    </a>
+                    <span class="user-greeting"></span>
+                    <button id="logoutBtn" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+                <button id="mobileMenuBtn" class="btn-mobile-menu"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="index.html">Trang chủ</a>
+            <a href="new-books.html">Sách mới</a>
+            <a href="top-books.html">Top sách</a>
+            <a href="about.html" class="nav-link active">Về chúng tôi</a>
+        </div>
+    </header>
+
+    <main class="main-content container">
+        <section class="user-profile-section">
+            <div class="user-profile-header">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="profile-avatar">
+                <div class="profile-info">
+                    <h1 class="profile-name" id="profileName">Nguyễn Văn A</h1>
+                    <p class="profile-email" id="profileEmail">user@example.com</p>
+                    <div class="profile-stats">
+                        <div class="stat-item saved-books-stat">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Sách đã lưu</span>
+                        </div>
+                        <div class="stat-item reviews-stat">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Đánh giá</span>
+                        </div>
+                        <div class="stat-item pending-books-stat">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Sách chờ duyệt</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-tabs">
+                <button class="profile-tab active" data-tab="saved">Sách đã lưu</button>
+                <button class="profile-tab" data-tab="pending">Sách chờ duyệt</button>
+            </div>
+
+            <div class="tab-content" id="savedBooksTab">
+                <div class="book-grid">
+                </div>
+            </div>
+
+            <div class="tab-content hidden" id="pendingBooksTab">
+                <div id="uploadBookSection" class="upload-book-section">
+                    <div class="upload-header">
+                        <h3><i class="fas fa-plus-circle"></i> Thêm sách mới (chờ duyệt)</h3>
+                        <p class="upload-description">Điền thông tin sách để gửi yêu cầu thêm vào hệ thống</p>
+                    </div>
+                    <form id="uploadBookForm" class="upload-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="newBookTitle">Tên sách *</label>
+                                <input type="text" id="newBookTitle" placeholder="Nhập tên sách" required>
+                                <span class="error-message" id="titleError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="newBookAuthor">Tác giả *</label>
+                                <input type="text" id="newBookAuthor" placeholder="Nhập tên tác giả" required>
+                                <span class="error-message" id="authorError"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="newBookPublisher">Nhà xuất bản *</label>
+                                <input type="text" id="newBookPublisher" placeholder="Nhập tên nhà xuất bản" required>
+                                <span class="error-message" id="publisherError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="newBookYear">Năm xuất bản</label>
+                                <input type="number" id="newBookYear" placeholder="VD: 2020" min="1800" max="2025">
+                                <span class="error-message" id="yearError"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="newBookDescription">Mô tả *</label>
+                            <textarea id="newBookDescription" placeholder="Mô tả ngắn gọn về nội dung sách" required rows="4"></textarea>
+                            <span class="error-message" id="descriptionError"></span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="newBookImage">Đường dẫn ảnh *</label>
+                                <input type="text" id="newBookImage" placeholder="VD: a1/1.jpg hoặc URL ảnh" required>
+                                <span class="error-message" id="imageError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="newBookGenre">Thể loại</label>
+                                <select id="newBookGenre">
+                                    <option value="">Chọn thể loại</option>
+                                    <option value="novel">Tiểu thuyết</option>
+                                    <option value="self-help">Self-help</option>
+                                    <option value="science">Khoa học</option>
+                                    <option value="history">Lịch sử</option>
+                                    <option value="fantasy">Fantasy</option>
+                                    <option value="international">Quốc tế</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-paper-plane"></i> Gửi sách
+                            </button>
+                            <button type="reset" class="btn-reset">
+                                <i class="fas fa-undo"></i> Làm mới
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="pending-books-header">
+                    <h3><i class="fas fa-clock"></i> Sách chờ duyệt</h3>
+                    <p class="pending-description">Danh sách sách bạn đã gửi và đang chờ admin duyệt</p>
+                </div>
+                <div class="book-grid" id="pendingBooksGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Đánh Giá Sách</h3>
+                <p class="footer-description">Nơi chia sẻ những cuốn sách hay từ Việt Nam và thế giới.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Thể loại</h4>
+                <div class="footer-list">
+                    <a href="#" class="footer-link">Tiểu thuyết</a>
+                    <a href="#" class="footer-link">Self-help</a>
+                    <a href="#" class="footer-link">Khoa học</a>
+                    <a href="#" class="footer-link">Lịch sử</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Liên kết</h4>
+                <div class="footer-list">
+                    <a href="index.html" class="footer-link">Trang chủ</a>
+                    <a href="#" class="footer-link">Sách mới</a>
+                    <a href="#" class="footer-link">Top sách</a>
+                    <a href="#" class="footer-link">Tác giả</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-subtitle">Liên hệ</h4>
+                <div class="footer-contact"><i class="fas fa-envelope"></i><span>contact@danhgiasach.vn</span></div>
+                <div class="footer-contact"><i class="fas fa-phone"></i><span>+84 123 456 789</span></div>
+                <div class="footer-contact"><i class="fas fa-map-marker-alt"></i><span>Hà Nội, Việt Nam</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2025 Đánh Giá Sách. All rights reserved.</div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Load user data when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            function renderSavedBooks() {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (!currentUser) return;
+                // Hiển thị sách đã lưu
+                const savedBookIds = window.getSavedBooksForUser(currentUser.email);
+                const allBooks = window.books || [];
+                const savedBooks = allBooks.filter(b => savedBookIds.includes(b.id));
+                const savedBooksGrid = document.querySelector('#savedBooksTab .book-grid');
+                savedBooksGrid.innerHTML = '';
+                if (savedBooks.length === 0) {
+                    savedBooksGrid.innerHTML = '<p>Bạn chưa lưu cuốn sách nào.</p>';
+                } else {
+                    savedBooks.forEach(book => {
+                        const div = document.createElement('div');
+                        div.className = 'book-card';
+                        div.dataset.bookId = book.id;
+                        div.innerHTML = `
+                            <img src="${book.image}" alt="${book.title}" class="book-image">
+                            <div class="book-content">
+                                <h3 class="book-title">${book.title}</h3>
+                                <p class="book-author">Tác giả: ${book.author}</p>
+                                <p class="book-publisher-author">Nhà xuất bản: ${book.publisher}</p>
+                                <p class="book-description">${book.description}</p>
+                                <div class="book-actions" style="display:flex;align-items:center;gap:8px;justify-content:center;margin-top:12px;">
+                                    <button class="btn-view-reviews" data-book-id="${book.id}" style="padding:4px 10px;min-width:unset;">Xem đánh giá</button>
+                                    <button class="btn-remove-saved" data-book-id="${book.id}" style="padding:4px 10px;min-width:unset;width:auto;height:auto;display:inline-flex;align-items:center;justify-content:center;">
+                                        <i class='fas fa-trash'></i>
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                        div.querySelector('.btn-view-reviews').onclick = () => {
+                            window.location.href = `book-review.html?bookId=${book.id}`;
+                        };
+                        div.querySelector('.btn-remove-saved').onclick = function() {
+                            const userEmail = currentUser.email;
+                            let allSaved = JSON.parse(localStorage.getItem('savedBooks')) || {};
+                            const savedBookIds = allSaved[userEmail] || [];
+                            const idx = savedBookIds.indexOf(book.id);
+                            if (idx !== -1) {
+                                savedBookIds.splice(idx, 1);
+                                allSaved[userEmail] = savedBookIds;
+                                localStorage.setItem('savedBooks', JSON.stringify(allSaved));
+                                window.savedBooks = savedBooks = allSaved;
+                                renderSavedBooks();
+                            }
+                        };
+                        savedBooksGrid.appendChild(div);
+                    });
+                }
+                // Cập nhật số lượng sách đã lưu
+                document.querySelector('.saved-books-stat .stat-number').textContent = savedBooks.length;
+                
+                // Cập nhật số lượng sách chờ duyệt
+                const pendingBooks = getPendingBooksForUser(currentUser.email);
+                document.querySelector('.pending-books-stat .stat-number').textContent = pendingBooks.length;
+            }
+            
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                document.querySelector('.user-greeting').textContent = `Xin chào, ${currentUser.name}`;
+                document.getElementById('profileName').textContent = currentUser.name;
+                document.getElementById('profileEmail').textContent = currentUser.email;
+                renderSavedBooks();
+            } else {
+                window.location.href = 'index.html';
+            }
+            
+            // Lắng nghe sự kiện storage để cập nhật khi có thay đổi ở tab khác
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'savedBooks') {
+                    renderSavedBooks();
+                }
+            });
+            
+            // Lắng nghe custom event để cập nhật giao diện ngay lập tức
+            window.addEventListener('savedBooksChanged', function(e) {
+                const { bookId, isSaved } = e.detail;
+                if (!isSaved) {
+                    // Sách bị xóa khỏi danh sách đã lưu
+                    const bookCard = document.querySelector(`.book-card[data-book-id="${bookId}"]`);
+                    if (bookCard) {
+                        // Thêm hiệu ứng fade out trước khi xóa
+                        bookCard.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        bookCard.style.opacity = '0';
+                        bookCard.style.transform = 'scale(0.95)';
+                        
+                        setTimeout(() => {
+                            bookCard.remove();
+                            // Cập nhật lại danh sách và số lượng
+                            renderSavedBooks();
+                        }, 300);
+                    }
+                }
+            });
+        });
+
+        // Xử lý sách chờ duyệt
+        function getPendingBooksForUser(email) {
+            const allPending = JSON.parse(localStorage.getItem('pendingBooks') || '{}');
+            return allPending[email] || [];
+        }
+        
+        function setPendingBooksForUser(email, books) {
+            const allPending = JSON.parse(localStorage.getItem('pendingBooks') || '{}');
+            allPending[email] = books;
+            localStorage.setItem('pendingBooks', JSON.stringify(allPending));
+        }
+
+        function renderPendingBooks() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) return;
+            
+            const pendingBooks = getPendingBooksForUser(currentUser.email);
+            const grid = document.getElementById('pendingBooksGrid');
+            grid.innerHTML = '';
+            
+            if (pendingBooks.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><i class="fas fa-inbox"></i><p>Bạn chưa gửi sách nào để duyệt.</p></div>';
+            } else {
+                pendingBooks.forEach(book => {
+                    const div = document.createElement('div');
+                    div.className = 'book-card pending-book-card';
+                    div.innerHTML = `
+                        <div class="book-status-badge pending">
+                            <i class="fas fa-clock"></i> Chờ duyệt
+                        </div>
+                        <img src="${book.image}" alt="${book.title}" class="book-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5YWFhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg=='">
+                        <div class="book-content">
+                            <h3 class="book-title">${book.title}</h3>
+                            <p class="book-author">Tác giả: ${book.author}</p>
+                            <p class="book-publisher-author">Nhà xuất bản: ${book.publisher}</p>
+                            ${book.year ? `<p class="book-year">Năm: ${book.year}</p>` : ''}
+                            <p class="book-description">${book.description}</p>
+                            ${book.genres && book.genres.length > 0 ? `<div class="book-genres">${book.genres.map(genre => `<span class="genre-tag">${genre}</span>`).join('')}</div>` : ''}
+                            <div class="book-actions">
+                                <button class="btn-cancel-request" data-book-id="${book.id}">
+                                    <i class="fas fa-trash"></i> Hủy yêu cầu
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Add event listener for cancel button
+                    div.querySelector('.btn-cancel-request').onclick = function() {
+                        const userEmail = currentUser.email;
+                        let allPending = JSON.parse(localStorage.getItem('pendingBooks')) || {};
+                        const pendingBookIds = allPending[userEmail] || [];
+                        const idx = pendingBookIds.findIndex(b => b.id === book.id);
+                        if (idx !== -1) {
+                            pendingBookIds.splice(idx, 1);
+                            allPending[userEmail] = pendingBookIds;
+                            localStorage.setItem('pendingBooks', JSON.stringify(allPending));
+                            renderPendingBooks();
+                            // Cập nhật counter sau khi hủy
+                            document.querySelector('.pending-books-stat .stat-number').textContent = pendingBookIds.length;
+                        }
+                    };
+                    
+                    grid.appendChild(div);
+                });
+            }
+            
+            // Cập nhật số lượng sách chờ duyệt
+            document.querySelector('.pending-books-stat .stat-number').textContent = pendingBooks.length;
+        }
+
+        // Form validation
+        function validateForm() {
+            let isValid = true;
+            const errors = {};
+            
+            // Validate title
+            const title = document.getElementById('newBookTitle').value.trim();
+            if (!title) {
+                errors.title = 'Vui lòng nhập tên sách';
+                isValid = false;
+            } else if (title.length < 2) {
+                errors.title = 'Tên sách phải có ít nhất 2 ký tự';
+                isValid = false;
+            }
+            
+            // Validate author
+            const author = document.getElementById('newBookAuthor').value.trim();
+            if (!author) {
+                errors.author = 'Vui lòng nhập tên tác giả';
+                isValid = false;
+            }
+            
+            // Validate publisher
+            const publisher = document.getElementById('newBookPublisher').value.trim();
+            if (!publisher) {
+                errors.publisher = 'Vui lòng nhập tên nhà xuất bản';
+                isValid = false;
+            }
+            
+            // Validate description
+            const description = document.getElementById('newBookDescription').value.trim();
+            if (!description) {
+                errors.description = 'Vui lòng nhập mô tả sách';
+                isValid = false;
+            } else if (description.length < 10) {
+                errors.description = 'Mô tả phải có ít nhất 10 ký tự';
+                isValid = false;
+            }
+            
+            // Validate image
+            const image = document.getElementById('newBookImage').value.trim();
+            if (!image) {
+                errors.image = 'Vui lòng nhập đường dẫn ảnh';
+                isValid = false;
+            }
+            
+            // Validate year
+            const year = document.getElementById('newBookYear').value;
+            if (year && (year < 1800 || year > 2025)) {
+                errors.year = 'Năm xuất bản phải từ 1800 đến 2025';
+                isValid = false;
+            }
+            
+            // Display errors
+            Object.keys(errors).forEach(field => {
+                const errorElement = document.getElementById(field + 'Error');
+                if (errorElement) {
+                    errorElement.textContent = errors[field];
+                }
+            });
+            
+            // Clear errors for valid fields
+            ['title', 'author', 'publisher', 'description', 'image', 'year'].forEach(field => {
+                if (!errors[field]) {
+                    const errorElement = document.getElementById(field + 'Error');
+                    if (errorElement) {
+                        errorElement.textContent = '';
+                    }
+                }
+            });
+            
+            return isValid;
+        }
+
+        // Clear all form errors
+        function clearFormErrors() {
+            ['title', 'author', 'publisher', 'description', 'image', 'year'].forEach(field => {
+                const errorElement = document.getElementById(field + 'Error');
+                if (errorElement) {
+                    errorElement.textContent = '';
+                }
+            });
+        }
+
+
+
+        // Enhanced form submission
+        document.getElementById('uploadBookForm').onsubmit = function(e) {
+            e.preventDefault();
+            clearFormErrors();
+            
+            if (!validateForm()) {
+                return;
+            }
+            
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                alert('Vui lòng đăng nhập để thực hiện chức năng này');
+                return;
+            }
+
+            const title = document.getElementById('newBookTitle').value.trim();
+            const author = document.getElementById('newBookAuthor').value.trim();
+            const publisher = document.getElementById('newBookPublisher').value.trim();
+            const description = document.getElementById('newBookDescription').value.trim();
+            const image = document.getElementById('newBookImage').value.trim();
+            const year = document.getElementById('newBookYear').value;
+            const genre = document.getElementById('newBookGenre').value;
+
+            // Create new book object
+            const newBook = {
+                id: Date.now(),
+                title,
+                author,
+                publisher,
+                description,
+                image,
+                year: year || null,
+                genres: genre ? [genre] : [],
+                status: 'pending',
+                submittedBy: currentUser.email,
+                submittedAt: new Date().toISOString()
+            };
+
+            // Add to pending books
+            const pendingBooks = getPendingBooksForUser(currentUser.email);
+            pendingBooks.push(newBook);
+            setPendingBooksForUser(currentUser.email, pendingBooks);
+
+            // Reset form
+            document.getElementById('uploadBookForm').reset();
+            
+            // Show success message
+            showNotification('Sách đã được gửi thành công và đang chờ duyệt!', 'success');
+            
+            // Re-render pending books
+            renderPendingBooks();
+            
+            // Cập nhật counter sau khi thêm sách mới
+            document.querySelector('.pending-books-stat .stat-number').textContent = pendingBooks.length;
+        };
+
+        // Form reset functionality
+        document.getElementById('uploadBookForm').onreset = function(e) {
+            clearFormErrors();
+        };
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+                <button class="notification-close"><i class="fas fa-times"></i></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+            
+            // Manual close
+            notification.querySelector('.notification-close').onclick = () => {
+                notification.remove();
+            };
+        }
+
+        // Tab switching functionality
+        document.querySelectorAll('.profile-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show corresponding tab content
+                const tabType = this.getAttribute('data-tab');
+                if (tabType === 'saved') {
+                    document.getElementById('savedBooksTab').classList.remove('hidden');
+                    renderSavedBooks();
+                } else if (tabType === 'pending') {
+                    document.getElementById('pendingBooksTab').classList.remove('hidden');
+                    renderPendingBooks();
+                }
+            });
+        });
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            renderPendingBooks();
+            
+            // Initialize tab functionality
+            const savedTab = document.querySelector('.profile-tab[data-tab="saved"]');
+            if (savedTab) {
+                savedTab.click(); // Activate saved books tab by default
+            }
+        });
+    </script>
+    <style>
+        /* Upload Book Section Styles */
+        .upload-book-section {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+
+        .upload-header {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .upload-header h3 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .upload-header h3 i {
+            color: #2563eb;
+        }
+
+        .upload-description {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .upload-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #374151;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #f9fafb;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .btn-submit,
+        .btn-reset {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .btn-submit {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .btn-reset {
+            background: #f3f4f6;
+            color: #374151;
+            border: 2px solid #e5e7eb;
+        }
+
+        .btn-reset:hover {
+            background: #e5e7eb;
+            border-color: #d1d5db;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.8rem;
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* Pending Books Section */
+        .pending-books-header {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .pending-books-header h3 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .pending-books-header h3 i {
+            color: #f59e0b;
+        }
+
+        .pending-description {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .pending-book-card {
+            position: relative;
+            border: 2px solid #fef3c7;
+            background: #fffbeb;
+        }
+
+        .book-status-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .book-status-badge.pending {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .book-year {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin: 4px 0;
+        }
+
+        .book-genres {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 8px 0;
+        }
+
+        .genre-tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .btn-cancel-request {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-cancel-request:hover {
+            background: #dc2626;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: #6b7280;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            color: #d1d5db;
+        }
+
+        .empty-state p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 8px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-left: 4px solid #2563eb;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 400px;
+            animation: slideIn 0.3s ease;
+        }
+
+        .notification-success {
+            border-left-color: #10b981;
+        }
+
+        .notification-success i {
+            color: #10b981;
+        }
+
+        .notification i {
+            font-size: 1.2rem;
+        }
+
+        .notification span {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .notification-close:hover {
+            background: #f3f4f6;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .upload-book-section {
+                padding: 16px;
+                margin-bottom: 24px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .notification {
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+        }
+    </style>
+</body>
+</html>

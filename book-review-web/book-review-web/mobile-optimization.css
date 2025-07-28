@@ -1,0 +1,335 @@
+/* Mobile Optimization CSS */
+
+/* Prevent zoom on input focus */
+@media screen and (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+}
+
+/* Improve touch targets */
+@media screen and (max-width: 768px) {
+    button,
+    .btn-login,
+    .btn-register,
+    .btn-save,
+    .btn-view-reviews,
+    .genre-filter,
+    .pagination-btn {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    .mobile-menu a {
+        min-height: 44px !important;
+        padding: 12px 0 !important;
+    }
+}
+
+/* Better spacing for mobile */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 8px !important;
+    }
+    
+    .header-content {
+        padding: 6px 8px !important;
+    }
+    
+    .main-content {
+        padding: 16px 8px !important;
+    }
+    
+    .book-grid {
+        gap: 8px !important;
+    }
+    
+    .book-content {
+        padding: 8px !important;
+    }
+}
+
+/* Improve readability on small screens */
+@media screen and (max-width: 480px) {
+    .hero-title {
+        font-size: 20px !important;
+        line-height: 1.1 !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+    }
+    
+    .book-title {
+        font-size: 13px !important;
+        line-height: 1.2 !important;
+    }
+    
+    .book-author {
+        font-size: 10px !important;
+    }
+    
+    .book-description {
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+    }
+}
+
+/* Better modal on mobile */
+@media screen and (max-width: 768px) {
+    .modal {
+        padding: 8px !important;
+    }
+    
+    .modal-content {
+        padding: 16px !important;
+        max-height: 85vh !important;
+    }
+    
+    .modal-title {
+        font-size: 20px !important;
+    }
+}
+
+/* Improve form elements on mobile */
+@media screen and (max-width: 768px) {
+    .form-input {
+        padding: 12px 14px !important;
+        font-size: 16px !important;
+    }
+    
+    .form-submit-btn {
+        padding: 14px 16px !important;
+        font-size: 16px !important;
+        min-height: 48px !important;
+    }
+}
+
+/* Better filter buttons on mobile */
+@media screen and (max-width: 768px) {
+    .filter-buttons {
+        gap: 6px !important;
+    }
+    
+    .genre-filter {
+        padding: 8px 12px !important;
+        font-size: 12px !important;
+        min-height: 44px !important;
+    }
+}
+
+/* Improve search bar on mobile */
+@media screen and (max-width: 768px) {
+    .search-bar {
+        max-width: 100% !important;
+    }
+    
+    .search-input {
+        padding: 14px 16px !important;
+        font-size: 16px !important;
+    }
+    
+    .search-button {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+    }
+}
+
+/* Better book card layout on mobile */
+@media screen and (max-width: 480px) {
+    .book-card {
+        border-radius: 6px !important;
+    }
+    
+    .book-image {
+        height: 160px !important;
+    }
+    
+    .book-actions {
+        gap: 6px !important;
+        flex-wrap: wrap !important;
+    }
+}
+
+/* Improve footer on mobile */
+@media screen and (max-width: 768px) {
+    .footer {
+        padding: 20px 0 !important;
+    }
+    
+    .footer-content {
+        gap: 20px !important;
+        padding: 0 12px !important;
+    }
+    
+    .footer-title {
+        font-size: 16px !important;
+    }
+    
+    .footer-description {
+        font-size: 13px !important;
+    }
+}
+
+/* Better user profile on mobile */
+@media screen and (max-width: 768px) {
+    .user-profile-section {
+        padding: 16px !important;
+        margin: 16px 8px !important;
+    }
+    
+    .profile-avatar {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
+    .profile-name {
+        font-size: 18px !important;
+    }
+    
+    .profile-email {
+        font-size: 13px !important;
+    }
+    
+    .stat-number {
+        font-size: 18px !important;
+    }
+    
+    .stat-label {
+        font-size: 11px !important;
+    }
+}
+
+/* Improve review items on mobile */
+@media screen and (max-width: 768px) {
+    .review-item {
+        padding: 12px !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .review-item-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+    }
+    
+    .review-item-user {
+        font-size: 14px !important;
+    }
+    
+    .review-item-date {
+        font-size: 11px !important;
+    }
+    
+    .review-item-comment {
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+    }
+    
+    .review-item-actions {
+        gap: 6px !important;
+        margin-top: 8px !important;
+    }
+    
+    .btn-delete-review,
+    .btn-like,
+    .btn-dislike {
+        padding: 6px 8px !important;
+        font-size: 11px !important;
+        min-height: 36px !important;
+        min-width: 36px !important;
+    }
+}
+
+/* Better pagination on mobile */
+@media screen and (max-width: 768px) {
+    .pagination {
+        margin-top: 24px !important;
+    }
+    
+    .pagination-nav {
+        gap: 6px !important;
+    }
+    
+    .pagination-btn {
+        padding: 8px 10px !important;
+        font-size: 13px !important;
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+}
+
+/* Prevent horizontal scroll */
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden !important;
+    }
+    
+    .container,
+    .header-content,
+    .main-content {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+}
+
+/* Better loading states */
+@media screen and (max-width: 768px) {
+    .search-loading .search-button {
+        animation: pulse 1.5s infinite !important;
+    }
+}
+
+/* Improve accessibility */
+@media screen and (max-width: 768px) {
+    /* Ensure focus is visible */
+    button:focus,
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: 2px solid #2563eb !important;
+        outline-offset: 2px !important;
+    }
+    
+    /* Better contrast for small text */
+    .book-author,
+    .book-description,
+    .review-item-date {
+        color: #4b5563 !important;
+    }
+}
+
+/* Fix iOS Safari issues */
+@supports (-webkit-touch-callout: none) {
+    .search-input {
+        -webkit-appearance: none !important;
+        border-radius: 9999px !important;
+    }
+    
+    .btn-login,
+    .btn-register,
+    .btn-save {
+        -webkit-appearance: none !important;
+    }
+}
+
+/* Better performance on mobile */
+@media screen and (max-width: 768px) {
+    .book-card:hover {
+        transform: none !important;
+    }
+    
+    .btn-save:hover,
+    .btn-login:hover,
+    .btn-register:hover {
+        transform: none !important;
+    }
+} 

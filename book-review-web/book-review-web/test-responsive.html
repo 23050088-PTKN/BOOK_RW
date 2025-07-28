@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Responsive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-optimization.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .test-info {
+            background: #f0f0f0;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .screen-size {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body class="main-body">
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-section">
+                <i class="fas fa-book-open logo-icon"></i>
+                <a href="index.html" class="logo-title">RW_BOOK</a>
+            </div>
+            
+            <nav class="nav-desktop">
+                <a href="index.html" class="nav-link">Trang chủ</a>
+                <a href="new-books.html" class="nav-link">Sách mới</a>
+                <a href="top-books.html" class="nav-link">Top sách</a>
+                <a href="about.html" class="nav-link">Về chúng tôi</a>
+            </nav>
+            
+            <div class="user-section">
+                <button id="loginBtn" class="btn-login">Đăng nhập</button>
+                <button id="registerBtn" class="btn-register">Đăng ký</button>
+                <button id="mobileMenuBtn" class="btn-mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="index.html" class="mobile-nav-link">Trang chủ</a>
+            <a href="new-books.html" class="mobile-nav-link">Sách mới</a>
+            <a href="top-books.html" class="mobile-nav-link">Top sách</a>
+            <a href="about.html" class="mobile-nav-link">Về chúng tôi</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Test Responsive Design</h1>
+            <p class="hero-subtitle">Kiểm tra hiển thị trên các thiết bị khác nhau</p>
+        </div>
+    </section>
+
+    <main class="container main-content">
+        <div class="test-info">
+            <div class="screen-size" id="screenSize">Đang kiểm tra kích thước màn hình...</div>
+            <p>Thay đổi kích thước cửa sổ để xem responsive design hoạt động</p>
+        </div>
+
+        <div class="filter-section">
+            <h2 class="filter-title">Test Grid Layout</h2>
+            <div class="filter-buttons">
+                <button class="genre-filter active">Tất cả</button>
+                <button class="genre-filter">Test 1</button>
+                <button class="genre-filter">Test 2</button>
+                <button class="genre-filter">Test 3</button>
+            </div>
+        </div>
+
+        <div class="book-grid">
+            <div class="book-card">
+                <img src="a1/1.jpg" alt="Test Book 1" class="book-image">
+                <div class="book-content">
+                    <h3 class="book-title">Test Book 1</h3>
+                    <p class="book-author">Tác giả: Test Author</p>
+                    <div class="rating-stars">
+                        <span class="rating-score">4.5</span>
+                    </div>
+                    <p class="book-description">Đây là một cuốn sách test để kiểm tra responsive design.</p>
+                    <div class="book-actions">
+                        <button class="btn-view-reviews">Xem đánh giá</button>
+                        <button class="btn-save">
+                            <i class="fas fa-bookmark"></i> Lưu
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="a1/2.jpg" alt="Test Book 2" class="book-image">
+                <div class="book-content">
+                    <h3 class="book-title">Test Book 2</h3>
+                    <p class="book-author">Tác giả: Test Author 2</p>
+                    <div class="rating-stars">
+                        <span class="rating-score">4.0</span>
+                    </div>
+                    <p class="book-description">Cuốn sách test thứ hai để kiểm tra layout.</p>
+                    <div class="book-actions">
+                        <button class="btn-view-reviews">Xem đánh giá</button>
+                        <button class="btn-save">
+                            <i class="fas fa-bookmark"></i> Lưu
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="a1/3.jpg" alt="Test Book 3" class="book-image">
+                <div class="book-content">
+                    <h3 class="book-title">Test Book 3</h3>
+                    <p class="book-author">Tác giả: Test Author 3</p>
+                    <div class="rating-stars">
+                        <span class="rating-score">5.0</span>
+                    </div>
+                    <p class="book-description">Cuốn sách test thứ ba để kiểm tra responsive.</p>
+                    <div class="book-actions">
+                        <button class="btn-view-reviews">Xem đánh giá</button>
+                        <button class="btn-save">
+                            <i class="fas fa-bookmark"></i> Lưu
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="a1/4.jpg" alt="Test Book 4" class="book-image">
+                <div class="book-content">
+                    <h3 class="book-title">Test Book 4</h3>
+                    <p class="book-author">Tác giả: Test Author 4</p>
+                    <div class="rating-stars">
+                        <span class="rating-score">4.8</span>
+                    </div>
+                    <p class="book-description">Cuốn sách test thứ tư để kiểm tra mobile view.</p>
+                    <div class="book-actions">
+                        <button class="btn-view-reviews">Xem đánh giá</button>
+                        <button class="btn-save">
+                            <i class="fas fa-bookmark"></i> Lưu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Screen size detection
+        function updateScreenSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const screenSizeElement = document.getElementById('screenSize');
+            
+            let sizeText = '';
+            if (width < 480) {
+                sizeText = `Mobile: ${width}px x ${height}px (1 cột)`;
+            } else if (width < 768) {
+                sizeText = `Tablet: ${width}px x ${height}px (2 cột)`;
+            } else if (width < 1024) {
+                sizeText = `Laptop: ${width}px x ${height}px (3 cột)`;
+            } else {
+                sizeText = `Desktop: ${width}px x ${height}px (4 cột)`;
+            }
+            
+            screenSizeElement.textContent = sizeText;
+        }
+
+        // Update on load and resize
+        updateScreenSize();
+        window.addEventListener('resize', updateScreenSize);
+    </script>
+</body>
+</html> 

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh Giá Sách - Trang 5</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="main-body">
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-section">
+                <i class="fas fa-book-open logo-icon"></i>
+                <a href="index.html" class="logo-title">RW_BOOK</a>
+            </div>
+            <nav class="nav-desktop">
+                <a href="index.html" class="nav-link">Trang chủ</a>
+                <a href="new-books.html" class="nav-link">Sách mới</a>
+                <a href="top-books.html" class="nav-link">Top sách</a>
+                <a href="about.html" class="nav-link active">Về chúng tôi</a>
+            </nav>
+            <div class="user-section">
+                <button id="loginBtn" class="btn-login">Đăng nhập</button>
+                <button id="registerBtn" class="btn-register">Đăng ký</button>
+                <div id="userMenu" class="user-menu hidden">
+                    <a href="user-profile.html" class="user-avatar-link">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="user-avatar">
+                    </a>
+                    <span class="user-greeting">Xin chào</span>
+                    <button id="logoutBtn" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+                <button id="mobileMenuBtn" class="btn-mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="index.html" class="mobile-nav-link">Trang chủ</a>
+            <a href="new-books.html" class="mobile-nav-link">Sách mới</a>
+            <a href="top-books.html" class="mobile-nav-link">Top sách</a>
+            <a href="about.html" class="mobile-nav-link">Về chúng tôi</a>
+        </div>
+    </header>
+
+  
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Khám phá thế giới sách</h1>
+            <p class="hero-subtitle">Nơi chia sẻ những cuốn sách hay từ Việt Nam và thế giới</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm sách, tác giả..." class="search-input" id="searchInput">
+                <button class="search-button" id="searchButton">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+   
+    <main class="container main-content">
+       
+        <div class="filter-section">
+            <h2 class="filter-title">Thể loại</h2>
+            <div class="filter-buttons">
+                <button class="genre-filter active" data-genre="all">Tất cả</button>
+                <button class="genre-filter" data-genre="vietnamese">Việt Nam</button>
+                <button class="genre-filter" data-genre="international">Quốc tế</button>
+                <button class="genre-filter" data-genre="novel">Tiểu thuyết</button>
+                <button class="genre-filter" data-genre="self-help">Self-help</button>
+                <button class="genre-filter" data-genre="science">Khoa học</button>
+                <button class="genre-filter" data-genre="history">Lịch sử</button>
+                <button class="genre-filter" data-genre="fantasy">Viễn tưởng</button>
+            </div>
+        </div>
+
+   
+        <div class="book-grid" id="bookGrid">
+            <!-- Book Card 33 -->
+<div class="book-card" data-genre="international,self-help" data-book-id="33">
+    <img src="a5/33.jpg" alt="Man’s Search for Meaning" class="book-image">
+    <div class="book-content">
+        <h3 class="book-title">
+            <a href="https://www.goodreads.com/book/show/4069.Man_s_Search_for_Meaning" class="book-title-link">Man’s Search for Meaning (1946)</a>
+        </h3>
+        <p class="book-author">Tác giả: Viktor E. Frankl</p>
+        <p class="book-author">Nhà xuất bản: Beacon Press</p>
+        <div class="rating-stars" data-book-id="33">
+            <span class="rating-score">4.5</span>
+        </div>
+        <p class="book-description">Hành trình tìm ý nghĩa cuộc sống qua trải nghiệm trong trại tập trung.</p>
+        <div class="book-actions">
+            <button class="btn-view-reviews" data-book-id="33">Xem đánh giá</button>
+            <button class="btn-save"><i class="fas fa-bookmark"></i> Lưu</button>
+        </div>
+    </div>
+</div>
+
+<!-- Book Card 34 -->
+<div class="book-card" data-genre="vietnamese,history" data-book-id="34">
+    <img src="a5/34.jpg" alt="Lịch Sử Thế Giới" class="book-image">
+    <div class="book-content">
+        <h3 class="book-title">
+            <a href="https://file.nhasachmienphi.com/pdf/nhasachmienphi-tuyen-tap-nguyen-hien-le-tap-1-triet-hoc.pdf" class="book-title-link">Lịch Sử Thế Giới (1960)</a>
+        </h3>
+        <p class="book-author">Tác giả: Nguyễn Hiến Lê</p>
+        <p class="book-author">Nhà xuất bản: NXB Tổng Hợp TP.HCM</p>
+        <div class="rating-stars" data-book-id="34">
+            <span class="rating-score">5.0</span>
+        </div>
+        <p class="book-description">Tóm lược các sự kiện, nền văn minh và biến động đã định hình lịch sử loài người.</p>
+        <div class="book-actions">
+            <button class="btn-view-reviews" data-book-id="34">Xem đánh giá</button>
+            <button class="btn-save"><i class="fas fa-bookmark"></i> Lưu</button>
+        </div>
+    </div>
+</div>
+
+<!-- Book Card 35 -->
+<div class="book-card" data-genre="vietnamese,history" data-book-id="35">
+    <img src="a5/35.jpg" alt="Lịch Sử Việt Nam" class="book-image">
+    <div class="book-content">
+        <h3 class="book-title">
+            <a href="book-detail.html?id=35" class="book-title-link">Lịch Sử Việt Nam (2017)</a>
+        </h3>
+        <p class="book-author">Tác giả: Viện Sử học Việt Nam</p>
+        <p class="book-author">Nhà xuất bản: NXB Khoa Học Xã Hội</p>
+        <div class="rating-stars" data-book-id="35">
+            <span class="rating-score">4.0</span>
+        </div>
+        <p class="book-description">Khái quát quá trình hình thành, đấu tranh và phát triển của dân tộc Việt Nam.</p>
+        <div class="book-actions">
+            <button class="btn-view-reviews" data-book-id="35">Xem đánh giá</button>
+            <button class="btn-save"><i class="fas fa-bookmark"></i> Lưu</button>
+        </div>
+    </div>
+</div>
+
+<!-- Book Card 36 -->
+<div class="book-card" data-genre="international,science" data-book-id="36">
+    <img src="a5/36.png" alt="The Universe in a Nutshell" class="book-image">
+    <div class="book-content">
+        <h3 class="book-title">
+            <a href="book-detail.html?id=36" class="book-title-link">The Universe in a Nutshell (2001)</a>
+        </h3>
+        <p class="book-author">Tác giả: Stephen Hawking</p>
+        <p class="book-author">Nhà xuất bản: Bantam Books</p>
+        <div class="rating-stars" data-book-id="36">
+            <span class="rating-score">5.0</span>
+        </div>
+        <p class="book-description">Hành trình giải mã bản chất vũ trụ qua tư duy của Stephen Hawking.</p>
+        <div class="book-actions">
+            <button class="btn-view-reviews" data-book-id="36">Xem đánh giá</button>
+            <button class="btn-save"><i class="fas fa-bookmark"></i> Lưu</button>
+        </div>
+    </div>
+</div>
+
+<!-- Book Card 37 -->
+<div class="book-card" data-genre="international,science" data-book-id="37">
+    <img src="a5/37.jpg" alt="The Grand Design" class="book-image">
+    <div class="book-content">
+        <h3 class="book-title">
+            <a href="book-detail.html?id=37" class="book-title-link">The Grand Design (2010)</a>
+        </h3>
+        <p class="book-author">Tác giả: Stephen Hawking</p>
+        <p class="book-author">Nhà xuất bản: Bantam Books</p>
+        <div class="rating-stars" data-book-id="37">
+            <span class="rating-score">4.0</span>
+        </div>
+        <p class="book-description">Giải thích sự hình thành vũ trụ qua lăng kính khoa học hiện đại.</p>
+        <div class="book-actions">
+            <button class="btn-view-reviews" data-book-id="37">Xem đánh giá</button>
+            <button class="btn-save"><i class="fas fa-bookmark"></i> Lưu</button>
+        </div>
+    </div>
+</div>
+
+<!-- Book Card 38 -->
+<div class="book-card" data-genre="international,science" data-book-id="38">
+    <img src="a5/38.jpg" alt="Thinking, Fast and Slow" class="book-image">
+    <div class="book-content">
+        <h3 class="book-title">
+            <a href="book-detail.html?id=38" class="book-title-link">Thinking, Fast and Slow (2011)</a>
+        </h3>
+        <p class="book-author">Tác giả: Daniel Kahneman</p>
+        <p class="book-author">Nhà xuất bản: Farrar, Straus and Giroux</p>
+        <div class="rating-stars" data-book-id="38">
+            <span class="rating-score">4.5</span>
+        </div>
+        <p class="book-description">Khám phá cách bộ não đưa ra quyết định và dễ mắc sai lầm.</p>
+        <div class="book-actions">
+            <button class="btn-view-reviews" data-book-id="38">Xem đánh giá</button>
+            <button class="btn-save"><i class="fas fa-bookmark"></i> Lưu</button>
+        </div>
+    </div>
+</div>
+
+<!-- Book Card 39 -->
+<div class="book-card" data-genre="international,self-help" data-book-id="39">
+    <img src="a5/39.jpg" alt="The Power of Now" class="book-image">
+    <div class="book-content">
+        <h3 class="book-title">
+            <a href="book-detail.html?id=39" class="book-title-link">The Power of Now (1997)</a>
+        </h3>
+        <p class="book-author">Tác giả: Eckhart Tolle</p>
+        <p class="book-author">Nhà xuất bản: New World Library</p>
+        <div class="rating-stars" data-book-id="39">
+            <span class="rating-score">4.0</span>
+        </div>
+        <p class="book-description">Hướng dẫn sống trọn vẹn trong hiện tại để tìm sự bình an nội tâm.</p>
+        <div class="book-actions">
+            <button class="btn-view-reviews" data-book-id="39">Xem đánh giá</button>
+            <button class="btn-save"><i class="fas fa-bookmark"></i> Lưu</button>
+        </div>
+    </div>
+</div>
+
+<!-- Book Card 40 -->
+<div class="book-card" data-genre="international,self-help" data-book-id="40">
+    <img src="a5/40.jpg" alt="Atomic Habits" class="book-image">
+    <div class="book-content">
+        <h3 class="book-title">
+            <a href="book-detail.html?id=40" class="book-title-link">Atomic Habits (2018)</a>
+        </h3>
+        <p class="book-author">Tác giả: James Clear</p>
+        <p class="book-author">Nhà xuất bản: Avery</p>
+        <div class="rating-stars" data-book-id="40">
+            <span class="rating-score">5.0</span>
+        </div>
+        <p class="book-description">Hướng dẫn xây dựng thói quen nhỏ để tạo ra thay đổi lớn và bền vững.</p>
+        <div class="book-actions">
+            <button class="btn-view-reviews" data-book-id="40">Xem đánh giá</button>
+            <button class="btn-save"><i class="fas fa-bookmark"></i> Lưu</button>
+        </div>
+    </div>
+</div>
+
+
+     
+        <div class="pagination">
+            <nav class="pagination-nav">
+                <a href="page4.html" class="pagination-btn">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <a href="index.html" class="pagination-btn">1</a>
+                <a href="page2.html" class="pagination-btn">2</a>
+                <a href="page3.html" class="pagination-btn">3</a>
+                <a href="page4.html" class="pagination-btn">4</a>
+                <a href="page5.html" class="pagination-btn active">5</a>
+                <span class="pagination-btn disabled">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </nav>
+        </div>
+    </main>
+
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Đăng nhập</h2>
+                <button id="closeLoginModal" class="modal-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="loginForm" class="modal-form">
+                <div class="form-group">
+                    <label for="loginEmail" class="form-label">Email</label>
+                    <input type="email" id="loginEmail" class="form-input" required>
+                    <p id="loginEmailError" class="error-message hidden">Email không hợp lệ hoặc không tồn tại!</p>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword" class="form-label">Mật khẩu</label>
+                    <input type="password" id="loginPassword" class="form-input" required>
+                    <p id="loginPasswordError" class="error-message hidden">Mật khẩu không đúng!</p>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="rememberMe" class="form-checkbox">
+                    <label for="rememberMe" class="form-label-checkbox">Ghi nhớ đăng nhập</label>
+                </div>
+                <button type="submit" class="form-submit-btn">Đăng nhập</button>
+            </form>
+            <div class="modal-footer">
+                <p class="modal-footer-text">Chưa có tài khoản? <button id="switchToRegister" class="modal-footer-btn">Đăng ký ngay</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Đăng ký</h2>
+                <button id="closeRegisterModal" class="modal-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="registerForm" class="modal-form">
+                <div class="form-group">
+                    <label for="registerName" class="form-label">Họ và tên</label>
+                    <input type="text" id="registerName" class="form-input" required>
+                    <p id="registerNameError" class="error-message hidden">Họ và tên không được để trống!</p>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail" class="form-label">Email</label>
+                    <input type="email" id="registerEmail" class="form-input" required>
+                    <p id="registerEmailError" class="error-message hidden">Email đã tồn tại!</p>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword" class="form-label">Mật khẩu</label>
+                    <input type="password" id="registerPassword" class="form-input" required>
+                    <p id="registerPasswordError" class="error-message hidden">Mật khẩu phải có ít nhất 6 ký tự!</p>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword" class="form-label">Nhập lại mật khẩu</label>
+                    <input type="password" id="registerConfirmPassword" class="form-input" required>
+                    <p id="registerConfirmPasswordError" class="error-message hidden">Mật khẩu không khớp!</p>
+                </div>
+                <button type="submit" class="form-submit-btn">Đăng ký</button>
+            </form>
+            <div class="modal-footer">
+                <p class="modal-footer-text">Đã có tài khoản? <button id="switchToLogin" class="modal-footer-btn">Đăng nhập ngay</button></p>
+            </div>
+        </div>
+    </div>
+
+ 
+     <footer class="footer">
+    <div class="container footer-content">
+        <!-- Giới thiệu -->
+        <div class="footer-section">
+            <h3 class="footer-title">Đánh Giá Sách</h3>
+            <p class="footer-description">
+                Nền tảng đánh giá sách hàng đầu, nơi độc giả Việt Nam kết nối, chia sẻ và khám phá những tựa sách giá trị từ khắp nơi trên thế giới.
+            </p>
+        </div>
+
+        <!-- Thể loại sách -->
+        <div class="footer-section">
+            <h4 class="footer-subtitle">Danh mục phổ biến</h4>
+            <ul class="footer-list">
+                <li><a href="#" class="footer-link">Việt Nam</a></li>
+                <li><a href="#" class="footer-link">Quốc Tế</a></li>
+                <li><a href="#" class="footer-link">Tiểu Thuyết</a></li>
+                <li><a href="#" class="footer-link">Self-help</a></li>
+            </ul>
+        </div>
+
+        <!-- Điều hướng -->
+        <div class="footer-section">
+            <h4 class="footer-subtitle">Liên kết nhanh</h4>
+            <ul class="footer-list">
+                <li><a href="index.html" class="footer-link">Trang chủ</a></li>
+                <li><a href="new-books.html" class="footer-link">Sách mới</a></li>
+                <li><a href="top-books.html" class="footer-link">Top sách</a></li>
+                <li><a href="about.html" class="footer-link">Về chúng tôi</a></li>
+            </ul>
+        </div>
+
+        <!-- Liên hệ -->
+        <div class="footer-section">
+            <h4 class="footer-subtitle">Thông tin liên hệ</h4>
+            <ul class="footer-list">
+                <li class="footer-contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>support@danhgiasach.vn</span>
+                </li>
+                <li class="footer-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(+84) 987 654 321</span>
+                </li>
+                <li class="footer-contact">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>TP. Hồ Chí Minh, Việt Nam</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bản quyền -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Đánh Giá Sách. All rights reserved.</p>
+    </div>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>
