@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đánh Giá Sách - Chi Tiết</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="main-body">
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-section">
+                <a href="index.html" class="logo-link">
+                    <i class="fas fa-book-open logo-icon"></i>
+                    <h1 class="logo-title">RW_BOOK</h1>
+                </a>
+            </div>
+            <nav class="nav-desktop">
+                <a href="index.html" class="nav-link">Trang chủ</a>
+                <a href="new-books.html" class="nav-link">Sách mới</a>
+                <a href="top-books.html" class="nav-link">Top sách</a>
+                <a href="about.html" class="nav-link active">Về chúng tôi</a>
+            </nav>
+            <div class="user-section">
+                <button id="loginBtn" class="btn-login">Đăng nhập</button>
+                <button id="registerBtn" class="btn-register">Đăng ký</button>
+                <div id="userMenu" class="user-menu hidden">
+            <a href="user-profile.html" class="user-avatar-link">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="user-avatar">
+        </a>
+        <span class="user-greeting"></span>
+        <button id="logoutBtn" class="btn-logout">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+            </div>
+                <button id="mobileMenuBtn" class="btn-mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="mobile-menu hidden">
+            <a href="index.html" class="mobile-nav-link">Trang chủ</a>
+            <a href="#" class="mobile-nav-link">Sách mới</a>
+            <a href="#" class="mobile-nav-link">Top sách</a>
+            <a href="#" class="mobile-nav-link">Về chúng tôi</a>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <section class="book-detail">
+            <div id="bookInfo" class="book-detail-content">
+            </div>
+            <div class="review-form-section hidden" id="reviewFormSection">
+                <h2 class="review-form-title">Đánh giá của bạn</h2>
+                <form id="reviewForm" class="review-form">
+                    <div class="form-group">
+                        <label for="rating" class="form-label">Đánh giá sao</label>
+                        <select id="rating" class="form-input" required>
+                            <option value="5">5 sao</option>
+                            <option value="4">4 sao</option>
+                            <option value="3">3 sao</option>
+                            <option value="2">2 sao</option>
+                            <option value="1">1 sao</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Bình luận <span id="charCount" class="char-count">(0/500)</span></label>
+                        <textarea id="comment" class="form-input" rows="4" placeholder="Nhập đánh giá của bạn..." maxlength="500"></textarea>
+                        <span id="commentError" class="error-message hidden">Bình luận phải có ít nhất 10 ký tự và không vượt quá 500 ký tự!</span>
+                    </div>
+                    <button type="submit" class="form-submit-btn">Gửi đánh giá</button>
+                </form>
+            </div>
+            <div class="review-list">
+                <h2 class="review-list-title">Đánh giá từ cộng đồng</h2>
+                <div id="reviewList">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Đăng nhập</h2>
+                <button id="closeLoginModal" class="modal-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="loginForm" class="modal-form">
+                <div class="form-group">
+                    <label for="loginEmail" class="form-label">Email</label>
+                    <input type="email" id="loginEmail" class="form-input" required>
+                    <p id="loginEmailError" class="error-message hidden">Email không hợp lệ hoặc không tồn tại!</p>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword" class="form-label">Mật khẩu</label>
+                    <input type="password" id="loginPassword" class="form-input" required>
+                    <p id="loginPasswordError" class="error-message hidden">Mật khẩu không đúng!</p>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="rememberMe" class="form-checkbox">
+                    <label for="rememberMe" class="form-label-checkbox">Ghi nhớ đăng nhập</label>
+                </div>
+                <button type="submit" class="form-submit-btn">Đăng nhập</button>
+            </form>
+            <div class="modal-footer">
+                <p class="modal-footer-text">Chưa có tài khoản? <button id="switchToRegister" class="modal-footer-btn">Đăng ký ngay</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Đăng ký</h2>
+                <button id="closeRegisterModal" class="modal-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="registerForm" class="modal-form">
+                <div class="form-group">
+                    <label for="registerName" class="form-label">Họ và tên</label>
+                    <input type="text" id="registerName" class="form-input" required>
+                    <p id="registerNameError" class="error-message hidden">Họ và tên không được để trống!</p>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail" class="form-label">Email</label>
+                    <input type="email" id="registerEmail" class="form-input" required>
+                    <p id="registerEmailError" class="error-message hidden">Email đã tồn tại!</p>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword" class="form-label">Mật khẩu</label>
+                    <input type="password" id="registerPassword" class="form-input" required>
+                    <p id="registerPasswordError" class="error-message hidden">Mật khẩu phải có ít nhất 6 ký tự!</p>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword" class="form-label">Nhập lại mật khẩu</label>
+                    <input type="password" id="registerConfirmPassword" class="form-input" required>
+                    <p id="registerConfirmPasswordError" class="error-message hidden">Mật khẩu không khớp!</p>
+                </div>
+                <button type="submit" class="form-submit-btn">Đăng ký</button>
+            </form>
+            <div class="modal-footer">
+                <p class="modal-footer-text">Đã có tài khoản? <button id="switchToLogin" class="modal-footer-btn">Đăng nhập ngay</button></p>
+            </div>
+        </div>
+    </div>
+
+ <footer class="footer">
+    <div class="container footer-content">
+        <!-- Giới thiệu -->
+        <div class="footer-section">
+            <h3 class="footer-title">Đánh Giá Sách</h3>
+            <p class="footer-description">
+                Nền tảng đánh giá sách hàng đầu, nơi độc giả Việt Nam kết nối, chia sẻ và khám phá những tựa sách giá trị từ khắp nơi trên thế giới.
+            </p>
+        </div>
+
+        <!-- Thể loại sách -->
+        <div class="footer-section">
+            <h4 class="footer-subtitle">Danh mục phổ biến</h4>
+            <ul class="footer-list">
+                <li><a href="#" class="footer-link">Văn học</a></li>
+                <li><a href="#" class="footer-link">Tâm lý – Kỹ năng sống</a></li>
+                <li><a href="#" class="footer-link">Kinh doanh</a></li>
+                <li><a href="#" class="footer-link">Khoa học – Công nghệ</a></li>
+            </ul>
+        </div>
+
+        <!-- Điều hướng -->
+        <div class="footer-section">
+            <h4 class="footer-subtitle">Liên kết nhanh</h4>
+            <ul class="footer-list">
+                <li><a href="#" class="footer-link">Trang chủ</a></li>
+                <li><a href="#" class="footer-link">Sách nổi bật</a></li>
+                <li><a href="#" class="footer-link">Đánh giá mới</a></li>
+                <li><a href="#" class="footer-link">Về chúng tôi</a></li>
+            </ul>
+        </div>
+
+        <!-- Liên hệ -->
+        <div class="footer-section">
+            <h4 class="footer-subtitle">Thông tin liên hệ</h4>
+            <ul class="footer-list">
+                <li class="footer-contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>support@danhgiasach.vn</span>
+                </li>
+                <li class="footer-contact">
+                    <i class="fas fa-phone"></i>
+                    <span>(+84) 987 654 321</span>
+                </li>
+                <li class="footer-contact">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>TP. Hồ Chí Minh, Việt Nam</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bản quyền -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Đánh Giá Sách. All rights reserved.</p>
+    </div>
+</footer>
+    <script src="script.js"></script>
+</body>
+</html>
